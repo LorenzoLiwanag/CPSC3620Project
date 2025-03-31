@@ -31,6 +31,8 @@ const greedyFindStartStation = (gas, cost) => {
 }
 
 
+
+
 //generate gas and cost arrays of length n to simulate greedy algorithm
 const generateGasAndCostArrays = (n, gasMax = 1000, costMax = 1000) => {
     const gas = Array.from({ length: n }, () => Math.floor(Math.random() * gasMax));
@@ -45,7 +47,7 @@ const testAlgorithm = (n) => {
     const result = greedyFindStartStation(gas, cost);
     const endTime = performance.now(); // End timer
 
-    const duration = (endTime - startTime).toFixed(3);
+    const duration = (endTime - startTime).toFixed(4);
     console.log(`n = ${n} ,  Time: ${duration} ms | Result: ${result}`);
 }
 
