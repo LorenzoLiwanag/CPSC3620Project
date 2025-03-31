@@ -38,5 +38,28 @@ const generateGasAndCostArrays = (n, gasMax = 1000, costMax = 1000) => {
     return { gas, cost };
 }
 
+const testAlgorithm = (n) => {
+    const { gas, cost } = generateGasAndCostArrays(n);
+
+    const startTime = performance.now(); // Start timer
+    const result = greedyFindStartStation(gas, cost);
+    const endTime = performance.now(); // End timer
+
+    const duration = (endTime - startTime).toFixed(3);
+    console.log(`n = ${n} ,  Time: ${duration} ms | Result: ${result}`);
+}
+
+const runTests = () => {
+    const sizes = [10, 100, 1000, 5000, 10000, 50000, 100000];
+    
+    for (const n of sizes) {
+        testAlgorithm(n);
+    }
+}
+
+
+runTests();
+
+
 
 
