@@ -51,6 +51,7 @@ const testAlgorithm = (n) => {
     console.log(`n = ${n} ,  Time: ${duration} ms | Result: ${result}`);
 }
 
+//stress test to simulate diffent n amounts of stations 
 const runTests = () => {
     const sizes = [10, 100, 1000, 5000, 10000, 50000, 100000];
     
