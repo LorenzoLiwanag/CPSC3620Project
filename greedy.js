@@ -31,6 +31,46 @@ const greedyFindStartStation = (gas, cost) => {
 }
 
 
+//Unit tests to verify correctneess and verify correct return output
+const unitTests = [
+    {
+        gas: [1, 2, 3, 4, 5],
+        cost: [3, 4, 5, 1, 2],
+        expected: 3,
+        description: "Case with valid solution"
+    },
+    {
+        gas: [2, 3, 4],
+        cost: [3, 4, 3],
+        expected: -1,
+        description: "No valid start (totalGas < totalCost)"
+    },
+    {
+        gas: [5, 1, 2, 3, 4],
+        cost: [4, 4, 1, 5, 1],
+        expected: 4,
+        description: "Case with other valid solution"
+    },
+    {
+        gas: [1, 1, 1, 1],
+        cost: [1, 1, 1, 1],
+        expected: 0,
+        description: "All stations can be a valid start."
+    },
+    {
+        gas: [0, 0, 0],
+        cost: [0, 0, 0],
+        expected: 0,
+        description: "Edge case: zero gas, zero cost"
+    }
+];
+
+//simulate unit tests
+unitTests.forEach((test, index) => {
+    const result = greedyFindStartStation(test.gas, test.cost);
+    const passed = result === test.expected;
+    console.log(`Test ${index + 1}: ${test.description} → ${passed ? "PASSED" : "FAILED"} (Expected: ${test.expected}, Actual: ${result})`);
+});
 
 
 //generate gas and cost arrays of length n to simulate greedy algorithm
@@ -62,6 +102,8 @@ const runTests = () => {
 
 
 runTests();
+
+
 
 
 
